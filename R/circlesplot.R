@@ -1,12 +1,9 @@
 library("plotrix")
 
-#plot(0, 0, type = "n", xlim = c(-1, 1), ylim = c(-1.25, 1.25), axes="n")
-#draw.circle(0, 0, 0.5)
-#text(0, -0.9, "Sun: 10", col = "red")
+#circlesplot(c(1,2,3,4), c('Earth', 'Sun','s','s'))
 
-#draw.circle(0.7, 0, 0.1)
 
-circlesplot <- function(df_values, df_text, max=10L) {
+circlesplot <- function(df_values, df_text, max=10L, line_width=3) {
 
 
   if (class(max) != "integer") {
@@ -22,8 +19,25 @@ circlesplot <- function(df_values, df_text, max=10L) {
     stop("[Error][circlesplot][Error in Parameter(s)]: One vector should contain characters")
   }
 
+  df <- data.frame(df_values, df_text)
+  df <- df[order(df$df_values, decreasing = TRUE),]
 
+  plot(0, 0, type = "n", xlim = c(-9, 9), ylim = c(-9, 9), axes=TRUE, asp=1)
 
+  draw.circle(0, 0, df$df_values[1], lwd=line_width)
+  text(0, -0.9, df$df_text[1])
+
+  old <- df$df_values[1]
+  c <- old
+
+  df <- df[-c(1), ]
+
+  for (x in df$df_values) {
+    c <- c + old + 2
+    draw.circle(c, 0, df$df_values[x], lwd=line_width)
+    text(0, -0.9, df$df_text[x])
+  }
 
 
 }
+
