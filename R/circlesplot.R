@@ -1,8 +1,6 @@
 library("plotrix")
 
-#circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=4L, cp_title="Planets")
-
-
+#circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=3L, cp_title="Planets")
 
 
 circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=3L, cp_title="", cp_color=NULL, cp_title_size=1.5) {
@@ -16,17 +14,16 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=3L
 
 }
 
-
 .plot_circlesplot <- function(df, cp_line_width, cp_title, cp_max, cp_title_size) {
-
-  par(cex.main = cp_title_size)
-  plot(0, 0, type = "n", xlim = c(-10, 40), ylim = c(-14, 10), axes=TRUE, asp=1, main=cp_title, xlab="", ylab="")
 
   x_val <- df$cp_vals[1] + df$cp_vals[1] + 1
   y_val <- 0
   first_d <- df$cp_vals[1]
   y_val_text <- - (df$cp_vals[1] + 1)
   counter <- 0
+
+  par(cex.main = cp_title_size)
+  plot(0, 0, type = "n", xlim = c(-first_d, first_d*8), ylim = c(-first_d, first_d / 2), axes=TRUE, asp=1, main=cp_title, xlab="", ylab="")
 
   draw.circle(0, y_val, df$cp_vals[1], lwd=cp_line_width)
   text(0, y_val_text, df$cp_text[1])
