@@ -1,17 +1,23 @@
 library("plotrix")
 
-#circlesplot(cp_vals=c(4,3,2,1), cp_text=c('4','3','2','1'), cp_max=4L, cp_title="Planets")
+circlesplot(cp_vals=c(4,3,2,1), cp_text=c('4','3','2','1'), cp_max=4L, cp_title="Planets")
 
 
 
 
-circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=3L, cp_title="") {
+circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=3L, cp_title="", cp_color=NULL) {
 
-  .check_params(cp_vals, cp_text, cp_max, cp_line_width, cp_title)
+  .check_params(cp_vals, cp_text, cp_max, cp_line_width, cp_title, cp_color)
 
   df <- data.frame(cp_vals, cp_text)
   df <- df[order(df$cp_vals, decreasing = TRUE),]
 
+  .plot_circlesplot(df, cp_line_width, cp_title)
+
+}
+
+
+.plot_circlesplot <- function(df, cp_line_width, cp_title) {
   plot(0, 0, type = "n", xlim = c(-9, 9), ylim = c(-9, 9), axes=TRUE, asp=1, main=cp_title)
 
   x_val <- df$cp_vals[1] + df$cp_vals[1] + 1
@@ -28,10 +34,9 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=3L
     text(x_val, y_val_text, x)
     x_val <- x_val + df$cp_vals[1] + df$cp_vals[1] + 1
   }
-
 }
 
-.check_params <- function(cp_vals, cp_text, cp_max, cp_line_width, cp_title) {
+.check_params <- function(cp_vals, cp_text, cp_max, cp_line_width, cp_title, cp_color) {
 
   if (class(cp_max) != "integer") {
     stop("[Error][circlesplot][Error in Parameter(s)]: Parameter 'cp_max' should be integer!")
@@ -52,7 +57,7 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=3L
     stop("[Error][circlesplot][Error in Parameter(s)]: Vector 'cp_text' has to be provided!")
   }
   if (length(cp_vals) != length(cp_text)) {
-    stop("[Error][circlesplot][Error in Parameter(s)]: Both vectors should have same length!")
+    stop("[Error][circlesplot][Error in Parameter(s)]: Vector 'cp_vals' and 'cp_text' should have same length!")
   }
   if (is.numeric(cp_vals) != TRUE) {
     stop("[Error][circlesplot][Error in Parameter(s)]: Vector 'cp_vals' should contain numericals!")
@@ -60,7 +65,9 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=3L
   if (is.character(cp_text) != TRUE) {
     stop("[Error][circlesplot][Error in Parameter(s)]: Vector 'cp_text' should contain characters!")
   }
+  if (is.null(cp_color) != TRUE) {
+    if (length(cp_color) != length(cp_vals)) {
+      stop("[Error][circlesplot][Error in Parameter(s)]: Vector 'cp_color' should have same length as 'cp_vals'!")
+    }
+  }
 }
-
-
-
