@@ -1,6 +1,6 @@
 library("plotrix")
 
-circlesplot(cp_vals=c(4,3,2,1), cp_text=c('4','3','2','1'), cp_max=4L, cp_title="Planets")
+circlesplot(cp_vals=c(4,3,2,1), cp_text=c('4','3','2','1'), cp_max=2L, cp_title="Planets")
 
 
 
@@ -12,17 +12,19 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=3L
   df <- data.frame(cp_vals, cp_text)
   df <- df[order(df$cp_vals, decreasing = TRUE),]
 
-  .plot_circlesplot(df, cp_line_width, cp_title)
+  .plot_circlesplot(df, cp_line_width, cp_title, cp_max)
 
 }
 
 
-.plot_circlesplot <- function(df, cp_line_width, cp_title) {
-  plot(0, 0, type = "n", xlim = c(-9, 9), ylim = c(-9, 9), axes=TRUE, asp=1, main=cp_title)
+.plot_circlesplot <- function(df, cp_line_width, cp_title, cp_max) {
+  plot(0, 0, type = "n", xlim = c(-9, 9), ylim = c(-14, 14), axes=TRUE, asp=1, main=cp_title)
 
   x_val <- df$cp_vals[1] + df$cp_vals[1] + 1
   y_val <- 0
+  first_d <- df$cp_vals[1]
   y_val_text <- - (df$cp_vals[1] + 1)
+  counter <- 0
 
   draw.circle(0, y_val, df$cp_vals[1], lwd=cp_line_width)
   text(0, y_val_text, df$cp_text[1])
@@ -30,9 +32,19 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=3L
   df <- df[-c(1), ]
 
   for (x in df$cp_vals) {
+
+    counter <- counter + 1
+
+    if(counter == cp_max) {
+      x_val <- 0
+      y_val <- - (first_d * 2 + 1)
+      y_val_text <- - (first_d * 3)
+      counter <- 0
+    }
+
     draw.circle(x_val, y_val, x, lwd=cp_line_width)
     text(x_val, y_val_text, x)
-    x_val <- x_val + df$cp_vals[1] + df$cp_vals[1] + 1
+    x_val <- x_val + first_d + first_d + 1
   }
 }
 
