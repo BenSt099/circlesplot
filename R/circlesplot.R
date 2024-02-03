@@ -3,7 +3,7 @@ library("plotrix")
 
 #colors = c('#D1BBD7', '#AE76A3', '#882E72', '#1965B0', '#5289C7', '#7BAFDE', '#4EB265', '#90C987')
 #circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=3L, cp_title="Planets", cp_color=viridis(8))
-#circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=3L, cp_title="Planets")
+circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=3L, cp_title="Planets")
 
 
 circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L, cp_title="", cp_color=NULL, cp_title_size=1.5) {

@@ -12,7 +12,7 @@ Imports:
     plotrix
 Suggests:
     viridis
-URL:https://github.com/BenSt099/circlesplot
-BugReports:https://github.com/BenSt099/circlesplot/issues
+URL: https://github.com/BenSt099/circlesplot
+BugReports: https://github.com/BenSt099/circlesplot/issues
 Encoding: UTF-8
 LazyData: true
