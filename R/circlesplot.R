@@ -1,11 +1,31 @@
 library("plotrix")
-#library("viridis")
 
-#colors = c('#D1BBD7', '#AE76A3', '#882E72', '#1965B0', '#5289C7', '#7BAFDE', '#4EB265', '#90C987')
-#circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=3L, cp_title="Planets", cp_color=viridis(8))
-circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=3L, cp_title="Planets")
+#circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=3L, cp_title="Planets")
 
 
+#' Plots a circlesplot based upon the given input
+#'
+#' @param cp_vals
+#' @param cp_text
+#' @param cp_max
+#' @param cp_line_width
+#' @param cp_title
+#' @param cp_color
+#' @param cp_title_size
+#'
+#' @return Nothing
+#' @export
+#'
+#' @examples
+#'
+#' colors = c('#D1BBD7', '#AE76A3', '#882E72', '#1965B0', '#5289C7', '#7BAFDE', '#4EB265', '#90C987')
+#' circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=3L, cp_title="Some title", cp_color=colors)
+#'
+#'
+#' # For coloring, you can also use viridis package:
+#' library("viridis")
+#' circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=3L, cp_title="Some title", cp_color=viridis(8))
+#'
 circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L, cp_title="", cp_color=NULL, cp_title_size=1.5) {
 
   .check_params(cp_vals, cp_text, cp_max, cp_line_width, cp_title, cp_color, cp_title_size)
@@ -30,7 +50,7 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
   color_pos <- 1
 
   par(cex.main = cp_title_size)
-  plot(0, 0, type = "n", xlim = c(-(diameter *2 + diameter / 2), cp_max * diameter + 2 * diameter), ylim = c(-(diameter* (cp_max*cp_max)), diameter *2 + diameter / 2), axes=TRUE, asp=1, main=cp_title, xlab="", ylab="")
+  plot(0, 0, type = "n", xlim = c(- (2 + diameter), (cp_max * diameter) * 2), ylim = c( - (2.5* (ceiling(length(df$cp_vals) / cp_max) * diameter)), diameter *2), axes=TRUE, asp=1, main=cp_title, xlab="", ylab="")
 
   for (item in df$cp_vals) {
 
