@@ -50,7 +50,7 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
   color_pos <- 1
 
   par(cex.main = cp_title_size)
-  plot(0, 0, type = "n", xlim = c(- (2 + diameter), (cp_max * diameter) * 2), ylim = c( - (2.5* (ceiling(length(df$cp_vals) / cp_max) * diameter)), diameter *2), axes=TRUE, asp=1, main=cp_title, xlab="", ylab="")
+  plot(0, 0, type = "n", xlim = c(- (2 + diameter), (cp_max * diameter) * 2), ylim = c( - (2.5* (ceiling(length(df$cp_vals) / cp_max) * diameter)), diameter *2), axes=FALSE, asp=1, main=cp_title, xlab="", ylab="")
 
   for (item in df$cp_vals) {
 
