@@ -1,11 +1,5 @@
 library("plotrix")
 
-#circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=3L, cp_title="Planets")
-
-circlesplot(cp_vals=c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528), cp_text=c('Merkur','Venus','Erde','Mars','Jupiter','Saturn','Uranus','Neptun'), cp_max=4L, cp_title="Planets")
-
-
-
 #' Plots a circlesplot based upon the given input
 #'
 #' @param cp_vals
@@ -23,6 +17,9 @@ circlesplot(cp_vals=c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528), 
 #'
 #' colors = c('#D1BBD7', '#AE76A3', '#882E72', '#1965B0', '#5289C7', '#7BAFDE', '#4EB265', '#90C987')
 #' circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=3L, cp_title="Some title", cp_color=colors)
+#'
+#' # Proportions among planets
+#' circlesplot(cp_vals=c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528), cp_text=c('Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune'), cp_max=5L, cp_title="Planets")
 #'
 #'
 #' # For coloring, you can also use viridis package:
@@ -49,7 +46,7 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
   count <- 0
   x_pos <- 0
   y_pos <- 5
-  y_pos_text <- y_pos -(diameter + 3)
+  y_pos_text <- y_pos -(diameter*1.5 + 3)
   color_pos <- 1
 
   par(cex.main = cp_title_size)
@@ -62,7 +59,7 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
       x_pos <- 0
       y_pos <- y_pos -(3 * diameter)
       count <- 0
-      y_pos_text <- y_pos -(diameter + 3)
+      y_pos_text <- y_pos -(diameter*1.5 + 3)
     }
 
     draw.circle(x_pos, y_pos, item, lwd=cp_line_width, col = df$cp_color[color_pos])
