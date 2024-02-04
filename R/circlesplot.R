@@ -2,6 +2,9 @@ library("plotrix")
 
 #circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=3L, cp_title="Planets")
 
+circlesplot(cp_vals=c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528), cp_text=c('Merkur','Venus','Erde','Mars','Jupiter','Saturn','Uranus','Neptun'), cp_max=4L, cp_title="Planets")
+
+
 
 #' Plots a circlesplot based upon the given input
 #'
@@ -63,7 +66,7 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
     }
 
     draw.circle(x_pos, y_pos, item, lwd=cp_line_width, col = df$cp_color[color_pos])
-    text(x_pos, y_pos_text, item)
+    text(x_pos, y_pos_text, df$cp_text[color_pos])
     x_pos <- x_pos + diameter * 2 + 1
     count <- count + 1
     color_pos <- color_pos + 1
