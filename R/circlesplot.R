@@ -25,7 +25,7 @@
 #' library('plotrix')
 #' planets = c('Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune')
 #' diameter = c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528)
-#' circlesplot(cp_vals=diameter, cp_text=planets, cp_max=5L, cp_title="Planets")
+#' circlesplot(cp_vals=diameter, cp_text=planets, cp_max=5L, cp_title="Planets", cp_color=viridis(8))
 #'
 #' # For coloring, you can also use viridis package:
 #' library("viridis")

@@ -16,6 +16,21 @@ These plots can be used to visualize proportions between different objects. The 
 install.packages("circlesplot")
 ```
 
+## Usage
+
+``` r
+library('circlesplot')
+library('viridis')
+
+planets = c('Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune')
+diameter = c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528)
+
+circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_title="Planets", cp_color=viridis(8))
+```
+
+<img src="man/figures/readme_example.png" alt="Plot of eight planets in a row. Their proportions are correct."/>
+
+
 ## License
 
 This project is licensed under MIT License. Fore more information, click [here](https://github.com/BenSt099/circlesplot/blob/main/LICENSE.md).
