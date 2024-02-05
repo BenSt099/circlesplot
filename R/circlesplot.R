@@ -23,6 +23,7 @@
 #'
 #' # Proportions among planets
 #' library('plotrix')
+#' library("viridis")
 #' planets = c('Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune')
 #' diameter = c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528)
 #' circlesplot(cp_vals=diameter, cp_text=planets, cp_max=5L, cp_title="Planets", cp_color=viridis(8))
@@ -64,7 +65,7 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
     if(count >= cp_max) {
 
       x_pos <- 0
-      y_pos <- y_pos -(3 * diameter)
+      y_pos <- y_pos -(3 * diameter + diameter / 2)
       count <- 0
       y_pos_text <- y_pos -(diameter*1.5 + 3)
     }
