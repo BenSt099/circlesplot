@@ -11,7 +11,7 @@
 #' @importFrom graphics par text
 #' @importFrom plotrix draw.circle
 #' @return Nothing
-#' @export
+#' @export circlesplot
 #'
 #' @examples
 #'

@@ -1,6 +1,6 @@
 Package: circlesplot
 Type: Package
-Title: Visualize Values As Circles With a Circle-Plot
+Title: Visualize proportions with circles in a plot
 Version: 0.1.0
 Author: BenSt099
 Maintainer: BenSt099 <benst099@proton.me>
