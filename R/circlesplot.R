@@ -1,30 +1,37 @@
-library("plotrix")
-
 #' Plots a circlesplot based upon the given input
 #'
-#' @param cp_vals
-#' @param cp_text
-#' @param cp_max
-#' @param cp_line_width
-#' @param cp_title
-#' @param cp_color
-#' @param cp_title_size
+#' @param cp_vals Vector with values
+#' @param cp_text Vector with appropriate description of values
+#' @param cp_max Maximum number of circles in a row
+#' @param cp_line_width Line-width of the circles
+#' @param cp_title Title of the plot
+#' @param cp_color Vector of hex-colors for each circle
+#' @param cp_title_size Size of the title
 #'
+#' @importFrom graphics par text
+#' @importFrom plotrix draw.circle
 #' @return Nothing
 #' @export
 #'
 #' @examples
 #'
+#' library('plotrix')
 #' colors = c('#D1BBD7', '#AE76A3', '#882E72', '#1965B0', '#5289C7', '#7BAFDE', '#4EB265', '#90C987')
-#' circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=3L, cp_title="Some title", cp_color=colors)
+#' values = c(5,5,4,5,5,5,2,1)
+#' text = c('8','7','6','5','4','3','2','1')
+#' circlesplot(cp_vals=values, cp_text=text, cp_max=3L, cp_title="Some title", cp_color=colors)
 #'
 #' # Proportions among planets
-#' circlesplot(cp_vals=c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528), cp_text=c('Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune'), cp_max=5L, cp_title="Planets")
-#'
+#' library('plotrix')
+#' planets = c('Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune')
+#' diameter = c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528)
+#' circlesplot(cp_vals=diameter, cp_text=planets, cp_max=5L, cp_title="Planets")
 #'
 #' # For coloring, you can also use viridis package:
 #' library("viridis")
-#' circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=3L, cp_title="Some title", cp_color=viridis(8))
+#' values = c(5,5,4,5,5,5,2,1)
+#' text = c('8','7','6','5','4','3','2','1')
+#' circlesplot(cp_vals=values, cp_text=text, cp_max=4L, cp_title="Some title", cp_color=viridis(8))
 #'
 circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L, cp_title="", cp_color=NULL, cp_title_size=1.5) {
 
@@ -72,13 +79,13 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
 
 .check_params <- function(cp_vals, cp_text, cp_max, cp_line_width, cp_title, cp_color, cp_title_size) {
 
-  if (class(cp_max) != "integer") {
+  if (!inherits(cp_max, "integer")) {
     stop("[Error][circlesplot][Error in Parameter(s)]: Parameter 'cp_max' should be integer!")
   }
   if (cp_max <= 0L) {
     stop("[Error][circlesplot][Error in Parameter(s)]: Parameter 'cp_max' should be greater than zero!")
   }
-  if (class(cp_line_width) != "integer") {
+  if (!inherits(cp_line_width, "integer")) {
     stop("[Error][circlesplot][Error in Parameter(s)]: Parameter 'cp_line_width' should be integer!")
   }
   if (cp_line_width <= 0L) {
@@ -104,7 +111,7 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
       stop("[Error][circlesplot][Error in Parameter(s)]: Vector 'cp_color' should have same length as 'cp_vals'!")
     }
   }
-  if (class(cp_title_size) != "numeric") {
+  if (!inherits(cp_title_size, "numeric")) {
     stop("[Error][circlesplot][Error in Parameter(s)]: Parameter 'cp_title_size' should be numeric!")
   }
   if (cp_title_size < 1) {

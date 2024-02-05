@@ -15,7 +15,19 @@ circlesplot(
 )
 }
 \arguments{
-\item{cp_title_size}{}
+\item{cp_vals}{Vector with values}
+
+\item{cp_text}{Vector with appropriate description of values}
+
+\item{cp_max}{Maximum number of circles in a row}
+
+\item{cp_line_width}{Line-width of the circles}
+
+\item{cp_title}{Title of the plot}
+
+\item{cp_color}{Vector of hex-colors for each circle}
+
+\item{cp_title_size}{Size of the title}
 }
 \value{
 Nothing
@@ -25,12 +37,22 @@ Plots a circlesplot based upon the given input
 }
 \examples{
 
+library('plotrix')
 colors = c('#D1BBD7', '#AE76A3', '#882E72', '#1965B0', '#5289C7', '#7BAFDE', '#4EB265', '#90C987')
-circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=3L, cp_title="Some title", cp_color=colors)
+values = c(5,5,4,5,5,5,2,1)
+text = c('8','7','6','5','4','3','2','1')
+circlesplot(cp_vals=values, cp_text=text, cp_max=3L, cp_title="Some title", cp_color=colors)
 
+# Proportions among planets
+library('plotrix')
+planets = c('Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune')
+diameter = c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528)
+circlesplot(cp_vals=diameter, cp_text=planets, cp_max=5L, cp_title="Planets")
 
 # For coloring, you can also use viridis package:
 library("viridis")
-circlesplot(cp_vals=c(5,5,4,5,5,5,2,1), cp_text=c('8','7','6','5','4','3','2','1'), cp_max=3L, cp_title="Some title", cp_color=viridis(8))
+values = c(5,5,4,5,5,5,2,1)
+text = c('8','7','6','5','4','3','2','1')
+circlesplot(cp_vals=values, cp_text=text, cp_max=4L, cp_title="Some title", cp_color=viridis(8))
 
 }
