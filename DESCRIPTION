@@ -15,7 +15,7 @@ Suggests:
     rmarkdown,
     testthat (>= 3.0.0),
     viridis
-URL: https://github.com/BenSt099/circlesplot
+URL: https://github.com/BenSt099/circlesplot, https://benst099.github.io/circlesplot/
 BugReports: https://github.com/BenSt099/circlesplot/issues
 Encoding: UTF-8
 RoxygenNote: 7.3.1
