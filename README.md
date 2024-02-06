@@ -30,7 +30,7 @@ circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_title="Planets", cp
 
 <div style="display: flex;">
     <img src="man/figures/readme_example.png" alt="Image 1" style="flex: 20%; width: 20%; height: auto; padding: 5px;">
-    <img src="man/figures/readme_example (3).png" alt="Image 2" style="flex: 20%; width: 20%; height: auto; padding: 5px;">
+    <img src="man/figures/readme_example_3.png" alt="Image 2" style="flex: 20%; width: 20%; height: auto; padding: 5px;">
 </div>
 
 <div style="display: flex;">

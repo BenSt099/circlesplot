@@ -112,8 +112,8 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
       stop("[Error][circlesplot][Error in Parameter(s)]: Vector 'cp_color' should have same length as 'cp_vals'!")
     }
   }
-  if (!inherits(cp_title_size, "numeric")) {
-    stop("[Error][circlesplot][Error in Parameter(s)]: Parameter 'cp_title_size' should be numeric!")
+  if (!inherits(cp_title_size, "numeric") || !inherits(cp_title_size, "integer")) {
+    stop("[Error][circlesplot][Error in Parameter(s)]: Parameter 'cp_title_size' should be numeric / integer!")
   }
   if (cp_title_size < 1) {
     stop("[Error][circlesplot][Error in Parameter(s)]: Parameter 'cp_title_size' should be at least 1!")
