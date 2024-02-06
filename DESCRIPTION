@@ -11,6 +11,8 @@ License: MIT + file LICENSE
 Imports:
     plotrix
 Suggests:
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0),
     viridis
 URL: https://github.com/BenSt099/circlesplot
@@ -18,3 +20,4 @@ BugReports: https://github.com/BenSt099/circlesplot/issues
 Encoding: UTF-8
 RoxygenNote: 7.3.1
 Config/testthat/edition: 3
+VignetteBuilder: knitr
