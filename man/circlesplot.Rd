@@ -11,7 +11,8 @@ circlesplot(
   cp_line_width = 2L,
   cp_title = "",
   cp_color = NULL,
-  cp_title_size = 1.5
+  cp_title_size = 1.5,
+  cp_sort = "none"
 )
 }
 \arguments{
@@ -29,6 +30,10 @@ circlesplot(
 
 \item{cp_title_size}{Size of the title (numeric or integer)}
 
+\item{cp_sort}{String; specifies if values should be sorted ('asc', 'desc'; default: 'none') (ONLY in v2)}
+}
+\value{
+recordedPlot (ONLY in v2)
 }
 \description{
 `circlesplot()` plots circles with a given diameter next to each other, so readers can observe the
@@ -36,18 +41,20 @@ ratio between them.
 }
 \examples{
 
+\dontrun{
 library('plotrix')
 colors = c('#D1BBD7', '#AE76A3', '#882E72', '#1965B0', '#5289C7', '#7BAFDE', '#4EB265', '#90C987')
 values = c(5,5,4,5,5,5,2,1)
 text = c('8','7','6','5','4','3','2','1')
-circlesplot(cp_vals=values, cp_text=text, cp_max=3L, cp_title="Some title", cp_color=colors)
+circlesplot(cp_vals=values, cp_text=text, cp_max=3L, cp_title="Some title", cp_color=colors)}
 
+\dontrun{
 # Proportions among planets
 library('plotrix')
 library("viridis")
 planets = c('Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune')
 diameter = c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528)
-circlesplot(cp_vals=diameter, cp_text=planets, cp_max=5L, cp_title="Planets", cp_color=viridis(8))
+circlesplot(cp_vals=diameter, cp_text=planets, cp_max=5L, cp_title="Planets", cp_color=viridis(8))}
 
 # For coloring, you can also use viridis package:
 library("viridis")
