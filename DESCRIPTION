@@ -1,12 +1,11 @@
 Package: circlesplot
 Type: Package
-Title: Visualize proportions with circles in a plot
+Title: Visualize Proportions with Circles in a Plot
 Version: 0.1.0
 Author: BenSt099
 Maintainer: BenSt099 <benst099@proton.me>
-Description: This package provides tools to create circleplots.
-    These plots can be used to visualize proportions between different
-    objects. The proportions are drawn as circles.
+Description: This library provides tools to plot multiple circles with their given diameter.
+    The circles are used to visualize proportions between different objects, e.g. planets.
 License: MIT + file LICENSE
 Imports:
     plotrix
