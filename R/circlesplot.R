@@ -12,12 +12,12 @@
 #' @param cp_title Title of the plot (String)
 #' @param cp_color Vector of hex-colors for each circle
 #' @param cp_title_size Size of the title (numeric or integer)
-#' @param cp_sort String; specifies if values should be sorted ('asc', 'desc'; default: 'none') (ONLY in v1.1)
+#' @param cp_sort String; specifies if values should be sorted ('asc', 'desc'; default: 'none') (ONLY in v2)
 #'
 #' @importFrom graphics par text
 #' @importFrom plotrix draw.circle
 #' @importFrom grDevices recordPlot
-#' @return recordedPlot (ONLY in v1.1)
+#' @return recordedPlot (ONLY in v2)
 #' @export circlesplot
 #'
 #' @examples

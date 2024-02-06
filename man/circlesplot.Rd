@@ -11,8 +11,7 @@ circlesplot(
   cp_line_width = 2L,
   cp_title = "",
   cp_color = NULL,
-  cp_title_size = 1.5,
-  cp_sort = "none"
+  cp_title_size = 1.5
 )
 }
 \arguments{
@@ -30,10 +29,6 @@ circlesplot(
 
 \item{cp_title_size}{Size of the title (numeric or integer)}
 
-\item{cp_sort}{String; specifies if values should be sorted ('asc', 'desc'; default: 'none') (ONLY in v1.1)}
-}
-\value{
-recordedPlot (ONLY in v1.1)
 }
 \description{
 `circlesplot()` plots circles with a given diameter next to each other, so readers can observe the
