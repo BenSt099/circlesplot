@@ -2,7 +2,7 @@
 % Please edit documentation in R/circlesplot.R
 \name{circlesplot}
 \alias{circlesplot}
-\title{Plots a circlesplot based upon the given input}
+\title{circlesplot(): Plots multiple circles with their given ratios}
 \usage{
 circlesplot(
   cp_vals = NULL,
@@ -15,22 +15,23 @@ circlesplot(
 )
 }
 \arguments{
-\item{cp_vals}{Numeric vector}
+\item{cp_vals}{Vector (numeric)}
 
-\item{cp_text}{Vector with characters}
+\item{cp_text}{Vector (characters)}
 
-\item{cp_max}{Maximum number of circles in a row}
+\item{cp_max}{Maximum number of circles in a row (integer)}
 
-\item{cp_line_width}{Line-width of the circles}
+\item{cp_line_width}{Line-width of the circles (integer)}
 
-\item{cp_title}{Title of the plot}
+\item{cp_title}{Title of the plot (String)}
 
 \item{cp_color}{Vector of hex-colors for each circle}
 
-\item{cp_title_size}{Size of the title}
+\item{cp_title_size}{Size of the title (numeric or integer)}
 }
 \description{
-Plots a circlesplot based upon the given input
+`circlesplot()` plots circles with a given diameter next to each other, so readers can observe the
+ratio between them.
 }
 \examples{
 

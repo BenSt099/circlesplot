@@ -1,12 +1,17 @@
-#' Plots a circlesplot based upon the given input
+#' circlesplot(): Plots multiple circles with their given ratios
 #'
-#' @param cp_vals Numeric vector
-#' @param cp_text Vector with characters
-#' @param cp_max Maximum number of circles in a row
-#' @param cp_line_width Line-width of the circles
-#' @param cp_title Title of the plot
+#' @description
+#' `circlesplot()` plots circles with a given diameter next to each other, so readers can observe the
+#' ratio between them.
+#'
+#'
+#' @param cp_vals Vector (numeric)
+#' @param cp_text Vector (characters)
+#' @param cp_max Maximum number of circles in a row (integer)
+#' @param cp_line_width Line-width of the circles (integer)
+#' @param cp_title Title of the plot (String)
 #' @param cp_color Vector of hex-colors for each circle
-#' @param cp_title_size Size of the title
+#' @param cp_title_size Size of the title (numeric or integer)
 #'
 #' @importFrom graphics par text
 #' @importFrom plotrix draw.circle
