@@ -28,8 +28,15 @@ diameter = c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528)
 circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_title="Planets", cp_color=viridis(8))
 ```
 
-<img src="man/figures/readme_example.png" alt="Plot of eight planets in a row. Their proportions are correct."/>
+<div style="display: flex;">
+    <img src="man/figures/readme_example.png" alt="Image 1" style="flex: 20%; width: 20%; height: auto; padding: 5px;">
+    <img src="man/figures/readme_example (3).png" alt="Image 2" style="flex: 20%; width: 20%; height: auto; padding: 5px;">
+</div>
 
+<div style="display: flex;">
+    <p style="flex: 20%; width: 20%; height: auto; padding: 5px;">png-export</p>
+    <p style="flex: 20%; width: 20%; height: auto; padding: 5px;">pdf-export</p>
+</div>
 
 ## License
 
