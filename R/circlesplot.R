@@ -1,7 +1,7 @@
 #' Plots a circlesplot based upon the given input
 #'
-#' @param cp_vals Vector with values
-#' @param cp_text Vector with appropriate description of values
+#' @param cp_vals Numeric vector
+#' @param cp_text Vector with characters
 #' @param cp_max Maximum number of circles in a row
 #' @param cp_line_width Line-width of the circles
 #' @param cp_title Title of the plot
@@ -10,7 +10,7 @@
 #'
 #' @importFrom graphics par text
 #' @importFrom plotrix draw.circle
-#' @return Nothing
+#' @return NULL
 #' @export circlesplot
 #'
 #' @examples
@@ -65,7 +65,7 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
     if(count >= cp_max) {
 
       x_pos <- 0
-      y_pos <- y_pos -(3 * diameter + diameter / 2)
+      y_pos <- y_pos -(3 * diameter + diameter)
       count <- 0
       y_pos_text <- y_pos -(diameter*1.5 + 3)
     }

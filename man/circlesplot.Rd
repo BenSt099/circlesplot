@@ -15,9 +15,9 @@ circlesplot(
 )
 }
 \arguments{
-\item{cp_vals}{Vector with values}
+\item{cp_vals}{Numeric vector}
 
-\item{cp_text}{Vector with appropriate description of values}
+\item{cp_text}{Vector with characters}
 
 \item{cp_max}{Maximum number of circles in a row}
 
@@ -28,9 +28,6 @@ circlesplot(
 \item{cp_color}{Vector of hex-colors for each circle}
 
 \item{cp_title_size}{Size of the title}
-}
-\value{
-Nothing
 }
 \description{
 Plots a circlesplot based upon the given input
