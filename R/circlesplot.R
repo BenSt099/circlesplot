@@ -12,10 +12,12 @@
 #' @param cp_title Title of the plot (String)
 #' @param cp_color Vector of hex-colors for each circle
 #' @param cp_title_size Size of the title (numeric or integer)
+#' @param cp_sort String; specifies if values should be sorted ('asc', 'desc'; default: 'none') (ONLY in v1.1)
 #'
 #' @importFrom graphics par text
 #' @importFrom plotrix draw.circle
-#' @return NULL
+#' @importFrom grDevices recordPlot
+#' @return recordedPlot (ONLY in v1.1)
 #' @export circlesplot
 #'
 #' @examples
@@ -39,23 +41,28 @@
 #' text = c('8','7','6','5','4','3','2','1')
 #' circlesplot(cp_vals=values, cp_text=text, cp_max=4L, cp_title="Some title", cp_color=viridis(8))
 #'
-circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L, cp_title="", cp_color=NULL, cp_title_size=1.5) {
+circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L, cp_title="", cp_color=NULL, cp_title_size=1.5, cp_sort='none') {
 
-  .check_params(cp_vals, cp_text, cp_max, cp_line_width, cp_title, cp_color, cp_title_size)
+  .check_params(cp_vals, cp_text, cp_max, cp_line_width, cp_title, cp_color, cp_title_size, cp_sort)
 
   if (is.null(cp_color)) {
     cp_color <- rep("#FFFFFF", times=length(cp_vals))
     df <- data.frame(cp_vals, cp_text, cp_color)
   }
   df <- data.frame(cp_vals, cp_text, cp_color)
-  df <- df[order(df$cp_vals, decreasing = TRUE),]
 
-  .plot_circlesplot(df, cp_line_width, cp_title, cp_max, cp_title_size)
+  if(cp_sort == 'desc') {
+    df <- df[order(df$cp_vals, decreasing = TRUE),] # descending
+  } else if (cp_sort == 'asc') {
+    df <- df[order(df$cp_vals, decreasing = FALSE),] # ascending
+  }
+
+  return(.plot_circlesplot(df, cp_line_width, cp_title, cp_max, cp_title_size))
 }
 
 .plot_circlesplot <- function(df, cp_line_width, cp_title, cp_max, cp_title_size) {
 
-  diameter <- df$cp_vals[1]
+  diameter <- max(df$cp_vals)
   count <- 0
   x_pos <- 0
   y_pos <- 5
@@ -81,9 +88,11 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
     count <- count + 1
     color_pos <- color_pos + 1
   }
+  cplot <- recordPlot()
+  return(cplot)
 }
 
-.check_params <- function(cp_vals, cp_text, cp_max, cp_line_width, cp_title, cp_color, cp_title_size) {
+.check_params <- function(cp_vals, cp_text, cp_max, cp_line_width, cp_title, cp_color, cp_title_size, cp_sort) {
 
   if (!inherits(cp_max, "integer")) {
     stop("[Error][circlesplot][Error in Parameter(s)]: Parameter 'cp_max' should be integer!")
@@ -122,5 +131,8 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
   }
   if (cp_title_size < 1) {
     stop("[Error][circlesplot][Error in Parameter(s)]: Parameter 'cp_title_size' should be at least 1!")
+  }
+  if (cp_sort != 'none' && cp_sort != 'desc' && cp_sort != 'asc') {
+    stop("[Error][circlesplot][Error in Parameter(s)]: Parameter 'cp_sort' should be either 'none','desc' or 'asc'!")
   }
 }

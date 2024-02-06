@@ -45,3 +45,11 @@ test_that("10: Error when cp_vals is not numeric", {
 test_that("11: Error when cp_text is not character", {
   expect_error(.check_params(c(1,2), c(1,2), 1L, 3L, "", NULL, 1))
 })
+
+test_that("12: Error when cp_sort is not a string", {
+  expect_error(.check_params(c(1,2), c('y','k'), 1L, 3L, "", NULL, 1, 1))
+})
+
+test_that("13: Error when wrong option used in cp_sort", {
+  expect_error(.check_params(c(1,2), c('y','k'), 1L, 3L, "", NULL, 1, "asce"))
+})
