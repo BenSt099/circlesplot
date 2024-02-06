@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# circlesplot <a href="https://github.com/BenSt099/circlesplot"><img src="inst/figures/circlesplot_sticker.png" align="right" height="138"/></a>
+# circlesplot <a href="https://github.com/BenSt099/circlesplot"><img src="man/figures/circlesplot_sticker.png" align="right" width="138" height="138"/></a>
 
 <!-- badges: start -->
 
