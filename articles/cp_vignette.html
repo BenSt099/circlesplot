@@ -180,6 +180,15 @@ optional. If you leave it blank, it will be set to 2L.</p>
 quality, especially the rounding of the circles. If you export it as
 <em>png-file</em>, it will stay like that. The recommendation is to
 export the plot as a <em>pdf-file</em> which has better quality.</p>
+<p><strong>ATTENTION</strong>: You may see something unexpected in
+<em>RStudio</em>: When you create the plot and it is displayed in the
+lower right window (in the plots tab), it seems like that a part of the
+plot is cut off but this happens only due to the size of the lower right
+window. Either resize it or use the following r code to save the plot as
+<em>pdf</em>:</p>
+<pre><code><span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html" class="external-link">pdf</a></span><span class="op">(</span><span class="st">"path/to/your/pdf/plot1.pdf"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/circlesplot.html">circlesplot</a></span><span class="op">(</span>cp_vals<span class="op">=</span><span class="va">diameter</span>, cp_text<span class="op">=</span><span class="va">planets</span>, cp_max<span class="op">=</span><span class="fl">4L</span>, cp_color<span class="op">=</span><span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">viridis</a></span><span class="op">(</span><span class="fl">8</span><span class="op">)</span>, cp_title<span class="op">=</span><span class="st">"Planets"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span> </span></code></pre>
 </div>
 </div>
 <div class="section level2">
