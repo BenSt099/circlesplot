@@ -118,7 +118,16 @@ The final plot would look like this:
 
 ### Exporting
 
-You may observe that the output in *RStudio* lacks some quality, especially the rounding of the circles. If you export it as *png-file*, it will stay like that. The recommendation is to export the plot as a *pdf-file* which has better quality.
+You may observe that the output in *RStudio* lacks some quality, especially the rounding of the circles. If you export it as *png-file*, it will stay like that. The recommendation is to export the plot as a *pdf-file* which has better quality. 
+
+**ATTENTION**:
+You may see something unexpected in *RStudio*: When you create the plot and it is displayed in the lower right window (in the plots tab), it seems like that a part of the plot is cut off but this happens only due to the size of the lower right window. Either resize it or use the following r code to save the plot as *pdf*:
+
+```
+pdf("path/to/your/pdf/plot1.pdf")
+circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets")
+dev.off() 
+```
 
 
 ## Help

@@ -51,6 +51,26 @@ alt="plot, pdf-format" />
 The left plot is exported as *png*, while the right is exported as
 *pdf*.
 
+## Known issues
+
+You may see something unexpected in *RStudio*: When you create the plot
+and it is displayed in the lower right window (in the plots tab), it
+seems like that a part of the plot is cut off but this happens only due
+to the size of the lower right window. Either resize it or use the
+following r code to save the plot as *pdf*:
+
+``` r
+pdf("path/to/your/pdf/plot1.pdf")
+circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets")
+dev.off() 
+```
+
+## Help
+
+If you need help, take a deeper look into the
+[manual](https://benst099.github.io/circlesplot/articles/cp_vignette.html)
+or open an issue [here](https://github.com/BenSt099/circlesplot/issues).
+
 ## License
 
 This project is licensed under MIT License. Fore more information, click
