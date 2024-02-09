@@ -69,5 +69,5 @@ open an issue [here](https://github.com/BenSt099/circlesplot/issues).
 
 ## License
 
-This project is licensed under MIT License. Fore more information, click [here](https://github.com/BenSt099/circlesplot/blob/main/LICENSE.md).
+This project is licensed under MIT License.
 
