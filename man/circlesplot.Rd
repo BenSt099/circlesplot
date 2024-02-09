@@ -30,10 +30,10 @@ circlesplot(
 
 \item{cp_title_size}{Size of the title (numeric or integer)}
 
-\item{cp_sort}{String; specifies if values should be sorted ('asc', 'desc'; default: 'none') (ONLY in v2)}
+\item{cp_sort}{String; specifies if values should be sorted ('asc', 'desc'; default: 'none')}
 }
 \value{
-recordedPlot (ONLY in v2)
+Returns object of class 'recordedPlot'. Can be used for saving the plot to a variable and replay it again (See https://benst099.github.io/circlesplot/articles/cp_vignette.html).
 }
 \description{
 `circlesplot()` plots circles with a given diameter next to each other, so readers can observe the

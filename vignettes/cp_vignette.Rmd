@@ -79,7 +79,7 @@ library(viridis)
 
 and set the parameter *cp_color*:
 
-```
+```r
 circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8))
 ```
 
@@ -91,7 +91,7 @@ circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8))
 
 The title can be set via *cp_title*. To increase the size of the title, use *cp_title_size*, e.g.:
 
-```
+```r
 circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets", cp_title_size=4)
 ```
 
@@ -102,7 +102,7 @@ circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), c
 
 You can modify the line width / thickness of the circles with the *cp_line_width* parameter: 
 
-```
+```r
 circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets", cp_title_size=2, cp_line_width=3L)
 ```
 
@@ -115,6 +115,16 @@ The final plot would look like this:
 
 ![final plot, png-format](./vign_1.png){width=600}
 
+### Return value
+
+The *circlesplot*-function returns a recordedPlot-object. Therefore, you can save a plot to a variable and later plot the circlesplot:
+
+```r
+cp <- circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets")
+# ...
+cp
+```
+
 
 ### Exporting
 
@@ -123,7 +133,7 @@ You may observe that the output in *RStudio* lacks some quality, especially the 
 **ATTENTION**:
 You may see something unexpected in *RStudio*: When you create the plot and it is displayed in the lower right window (in the plots tab), it seems like that a part of the plot is cut off but this happens only due to the size of the lower right window. Either resize it or use the following r code to save the plot as *pdf*:
 
-```
+```r
 pdf("path/to/your/pdf/plot1.pdf")
 circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets")
 dev.off() 

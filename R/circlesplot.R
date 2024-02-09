@@ -12,12 +12,12 @@
 #' @param cp_title Title of the plot (String)
 #' @param cp_color Vector of hex-colors for each circle
 #' @param cp_title_size Size of the title (numeric or integer)
-#' @param cp_sort String; specifies if values should be sorted ('asc', 'desc'; default: 'none') (ONLY in v2)
+#' @param cp_sort String; specifies if values should be sorted ('asc', 'desc'; default: 'none')
 #'
 #' @importFrom graphics par text
 #' @importFrom plotrix draw.circle
 #' @importFrom grDevices recordPlot
-#' @return recordedPlot (ONLY in v2)
+#' @return Returns object of class 'recordedPlot'. Can be used for saving the plot to a variable and replay it again (See https://benst099.github.io/circlesplot/articles/cp_vignette.html).
 #' @export circlesplot
 #'
 #' @examples
@@ -64,6 +64,8 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
 
 .plot_circlesplot <- function(df, cp_line_width, cp_title, cp_max, cp_title_size) {
 
+  par_old <- par(no.readonly = TRUE)
+  on.exit(par(par_old), add = TRUE)
   diameter <- max(df$cp_vals)
   count <- 0
   x_pos <- 0
