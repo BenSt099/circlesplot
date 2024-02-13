@@ -2,9 +2,11 @@ Package: circlesplot
 Type: Package
 Title: Visualize Proportions with Circles in a Plot
 Version: 1.0.0
-Authors@R: c(person("BenSt099", "Developer", role = c("aut", "cre","cph"),
+Authors@R: c(person("BenSt099", role = c("aut", "cre","cph"),
     email = "benst099@proton.me"))
-Description: Method for visualizing proportions between objects of different sizes.
+Description: Method for visualizing proportions between objects of different sizes. 
+    The proportions are drawn as circles with different diameters, which makes them ideal
+    for visualizing proportions between planets.
 License: MIT + file LICENSE
 Imports:
     plotrix

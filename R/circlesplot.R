@@ -22,20 +22,20 @@
 #'
 #' @examples
 #'
-#' \dontrun{
+#' \donttest{
 #' library('plotrix')
 #' colors = c('#D1BBD7', '#AE76A3', '#882E72', '#1965B0', '#5289C7', '#7BAFDE', '#4EB265', '#90C987')
 #' values = c(5,5,4,5,5,5,2,1)
 #' text = c('8','7','6','5','4','3','2','1')
-#' circlesplot(cp_vals=values, cp_text=text, cp_max=3L, cp_title="Some title", cp_color=colors)}
+#' circlesplot(cp_vals=values, cp_text=text, cp_max=3L, cp_title="Some title", cp_color=colors)
+#' }
 #'
-#' \dontrun{
 #' # Proportions among planets
 #' library('plotrix')
-#' library("viridis")
+#' colors = c('#D1BBD7', '#AE76A3', '#882E72', '#1965B0', '#5289C7', '#7BAFDE', '#4EB265', '#90C987')
 #' planets = c('Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune')
 #' diameter = c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528)
-#' circlesplot(cp_vals=diameter, cp_text=planets, cp_max=5L, cp_title="Planets", cp_color=viridis(8))}
+#' circlesplot(cp_vals=diameter, cp_text=planets, cp_max=5L, cp_title="Planets", cp_color=colors)
 #'
 #' # For coloring, you can also use viridis package:
 #' library("viridis")
@@ -64,8 +64,6 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
 
 .plot_circlesplot <- function(df, cp_line_width, cp_title, cp_max, cp_title_size) {
 
-  par_old <- par(no.readonly = TRUE)
-  on.exit(par(par_old), add = TRUE)
   diameter <- max(df$cp_vals)
   count <- 0
   x_pos <- 0
@@ -73,8 +71,17 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
   y_pos_text <- y_pos -(diameter*1.5 + 3)
   color_pos <- 1
 
-  par(cex.main = cp_title_size)
-  plot(0, 0, type = "n", xlim = c(- (2 + diameter), (cp_max * diameter) * 2), ylim = c( - (2.5* (ceiling(length(df$cp_vals) / cp_max) * diameter)), diameter *2), axes=FALSE, asp=1, main=cp_title, xlab="", ylab="")
+  par_old <- par(no.readonly = TRUE, fig=c(0, 1, 0, 1))
+
+  plot(0, 0, type = "n", xlim = c(- (2 + diameter), (cp_max * diameter) * 2), ylim = c( - (2.5* (ceiling(length(df$cp_vals) / cp_max) * diameter)), diameter *2), axes=FALSE, asp=1, xlab="", ylab="")
+
+  if(cp_max %% 2 == 0) {
+    text((cp_max / 2) * (x_pos + diameter * 2 + 1) - ((x_pos + diameter * 2 + 1) / 2), diameter*2 + y_pos, cp_title, cex=cp_title_size)
+  } else {
+    text((floor(cp_max / 2)) * (x_pos + diameter * 2 + 1), diameter*2 + y_pos, cp_title, cex=cp_title_size)
+  }
+
+  on.exit(par(par_old), add = TRUE)
 
   for (item in df$cp_vals) {
 
