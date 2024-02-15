@@ -6,6 +6,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/BenSt099/circlesplot/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/BenSt099/circlesplot/actions/workflows/R-CMD-check.yaml)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/circlesplot)](https://cran.r-project.org/package=circlesplotdevt)
 <!-- badges: end -->
 
 ## Overview
@@ -21,11 +22,17 @@ also be used for other things too.
 
 ## Installation
 
-You can install the development version of **circlesplot** from
-[GitHub](https://github.com/) with:
+Install the latest version from **CRAN**:
 
 ``` r
-# install.packages("devtools")
+install.packages("circlesplot")
+```
+
+or the development version from
+[GitHub](https://github.com/BenSt099/circlesplot):
+
+``` r
+install.packages("devtools")
 devtools::install_github("BenSt099/circlesplot")
 ```
 
