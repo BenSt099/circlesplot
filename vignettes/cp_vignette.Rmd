@@ -26,7 +26,7 @@ library(circlesplot)
 
 ## Usage
 
-## Basic plotting
+### Basic plotting
 
 To actually plot something, we need some data and associated labels. Note that both vectors are required and should have the same size.
 
@@ -92,10 +92,19 @@ circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8))
 The title can be set via *cp_title*. To increase the size of the title, use *cp_title_size*, e.g.:
 
 ```r
-circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets", cp_title_size=4)
+circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets", cp_title_size=2)
 ```
 
 **NOTE**: Both parameters are optional. If you leave them blank, *cp_title* will be left blank and *cp_title_size* will be set to 1.5.
+
+### Order
+
+If you want to automatically order your results, you can set the *cp_sort*-parameter. Per default, it is set to 'none'.
+But you can also set it to 'asc' (ascending) or 'desc' (descending):
+
+```r
+circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets", cp_title_size=2, cp_sort='desc')
+```
 
 
 ### Circles
@@ -103,7 +112,7 @@ circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), c
 You can modify the line width / thickness of the circles with the *cp_line_width* parameter: 
 
 ```r
-circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets", cp_title_size=2, cp_line_width=3L)
+circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets", cp_title_size=2, cp_sort='desc', cp_line_width=3L)
 ```
 
 **NOTE**: The *cp_line_width* parameter is optional. If you leave it blank, it will be set to 2L.
@@ -113,14 +122,14 @@ circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), c
 
 The final plot would look like this:
 
-![final plot, png-format](./vign_1.png){width=600}
+![final plot, pdf-format](./vign_1.png){width=400}
 
 ### Return value
 
 The *circlesplot*-function returns a recordedPlot-object. Therefore, you can save a plot to a variable and later plot the circlesplot:
 
 ```r
-cp <- circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets")
+cp <- circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets", cp_title_size=2.5, cp_sort='desc', cp_line_width=3L)
 # ...
 cp
 ```
@@ -131,15 +140,15 @@ cp
 You may observe that the output in *RStudio* lacks some quality, especially the rounding of the circles. If you export it as *png-file*, it will stay like that. The recommendation is to export the plot as a *pdf-file* which has better quality. 
 
 **ATTENTION**:
-You may see something unexpected in *RStudio*: When you create the plot and it is displayed in the lower right window (in the plots tab), it seems like that a part of the plot is cut off but this happens only due to the size of the lower right window. Either resize it or use the following r code to save the plot as *pdf*:
+You may see something unexpected in *RStudio*: When you create the plot and it is displayed in the lower right window (in the plots tab), it seems like that a part of the plot is cut off but this happens only due to the size of the lower right window. Either resize it or use the following *R*-code to save the plot as *pdf*:
 
 ```r
 pdf("path/to/your/pdf/plot1.pdf")
-circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets")
+circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets", cp_sort='desc')
 dev.off() 
 ```
 
 
 ## Help
 
-If you need help or want to report an issue, request a new feature, please visit [Github](https://github.com/BenSt099/circlesplot).
+If you need help, want to report an issue or request a new feature, please visit [Github](https://github.com/BenSt099/circlesplot).

@@ -47,7 +47,7 @@ library('viridis')
 planets = c('Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune')
 diameter = c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528)
 
-circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_title="Planets", cp_color=viridis(8))
+circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_title="Planets", cp_color=viridis(8), cp_sort='desc')
 ```
 
 <img src="man/figures/README-example.png" width="400"
@@ -68,7 +68,7 @@ following r code to save the plot as *pdf*:
 
 ``` r
 pdf("path/to/your/pdf/plot1.pdf")
-circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets")
+circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), cp_title="Planets", cp_sort='desc')
 dev.off() 
 ```
 
