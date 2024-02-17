@@ -96,10 +96,9 @@ library:</p>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-</div>
-<div class="section level2">
-<h2 id="basic-plotting">Basic plotting<a class="anchor" aria-label="anchor" href="#basic-plotting"></a>
-</h2>
+<div class="section level3">
+<h3 id="basic-plotting">Basic plotting<a class="anchor" aria-label="anchor" href="#basic-plotting"></a>
+</h3>
 <p>To actually plot something, we need some data and associated labels.
 Note that both vectors are required and should have the same size.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -108,6 +107,7 @@ Note that both vectors are required and should have the same size.</p>
 <p>Now we can plot it:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/circlesplot.html">circlesplot</a></span><span class="op">(</span>cp_vals<span class="op">=</span><span class="va">diameter</span>, cp_text<span class="op">=</span><span class="va">planets</span>, cp_max<span class="op">=</span><span class="fl">4L</span><span class="op">)</span></span></code></pre></div>
+</div>
 <div class="section level3">
 <h3 id="further-adjustments">Further adjustments<a class="anchor" aria-label="anchor" href="#further-adjustments"></a>
 </h3>
@@ -153,18 +153,27 @@ If you leave it blank, it will set all colors to white (#FFFFFF).</p>
 <p>The title can be set via <em>cp_title</em>. To increase the size of
 the title, use <em>cp_title_size</em>, e.g.:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/circlesplot.html">circlesplot</a></span><span class="op">(</span>cp_vals<span class="op">=</span><span class="va">diameter</span>, cp_text<span class="op">=</span><span class="va">planets</span>, cp_max<span class="op">=</span><span class="fl">4L</span>, cp_color<span class="op">=</span><span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">viridis</a></span><span class="op">(</span><span class="fl">8</span><span class="op">)</span>, cp_title<span class="op">=</span><span class="st">"Planets"</span>, cp_title_size<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/circlesplot.html">circlesplot</a></span><span class="op">(</span>cp_vals<span class="op">=</span><span class="va">diameter</span>, cp_text<span class="op">=</span><span class="va">planets</span>, cp_max<span class="op">=</span><span class="fl">4L</span>, cp_color<span class="op">=</span><span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">viridis</a></span><span class="op">(</span><span class="fl">8</span><span class="op">)</span>, cp_title<span class="op">=</span><span class="st">"Planets"</span>, cp_title_size<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <p><strong>NOTE</strong>: Both parameters are optional. If you leave
 them blank, <em>cp_title</em> will be left blank and
 <em>cp_title_size</em> will be set to 1.5.</p>
+</div>
+<div class="section level3">
+<h3 id="order">Order<a class="anchor" aria-label="anchor" href="#order"></a>
+</h3>
+<p>If you want to automatically order your results, you can set the
+<em>cp_sort</em>-parameter. Per default, it is set to ‘none’. But you
+can also set it to ‘asc’ (ascending) or ‘desc’ (descending):</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/circlesplot.html">circlesplot</a></span><span class="op">(</span>cp_vals<span class="op">=</span><span class="va">diameter</span>, cp_text<span class="op">=</span><span class="va">planets</span>, cp_max<span class="op">=</span><span class="fl">4L</span>, cp_color<span class="op">=</span><span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">viridis</a></span><span class="op">(</span><span class="fl">8</span><span class="op">)</span>, cp_title<span class="op">=</span><span class="st">"Planets"</span>, cp_title_size<span class="op">=</span><span class="fl">2</span>, cp_sort<span class="op">=</span><span class="st">'desc'</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="circles">Circles<a class="anchor" aria-label="anchor" href="#circles"></a>
 </h3>
 <p>You can modify the line width / thickness of the circles with the
 <em>cp_line_width</em> parameter:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/circlesplot.html">circlesplot</a></span><span class="op">(</span>cp_vals<span class="op">=</span><span class="va">diameter</span>, cp_text<span class="op">=</span><span class="va">planets</span>, cp_max<span class="op">=</span><span class="fl">4L</span>, cp_color<span class="op">=</span><span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">viridis</a></span><span class="op">(</span><span class="fl">8</span><span class="op">)</span>, cp_title<span class="op">=</span><span class="st">"Planets"</span>, cp_title_size<span class="op">=</span><span class="fl">2</span>, cp_line_width<span class="op">=</span><span class="fl">3L</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/circlesplot.html">circlesplot</a></span><span class="op">(</span>cp_vals<span class="op">=</span><span class="va">diameter</span>, cp_text<span class="op">=</span><span class="va">planets</span>, cp_max<span class="op">=</span><span class="fl">4L</span>, cp_color<span class="op">=</span><span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">viridis</a></span><span class="op">(</span><span class="fl">8</span><span class="op">)</span>, cp_title<span class="op">=</span><span class="st">"Planets"</span>, cp_title_size<span class="op">=</span><span class="fl">2</span>, cp_sort<span class="op">=</span><span class="st">'desc'</span>, cp_line_width<span class="op">=</span><span class="fl">3L</span><span class="op">)</span></span></code></pre></div>
 <p><strong>NOTE</strong>: The <em>cp_line_width</em> parameter is
 optional. If you leave it blank, it will be set to 2L.</p>
 </div>
@@ -173,7 +182,7 @@ optional. If you leave it blank, it will be set to 2L.</p>
 </h3>
 <p>The final plot would look like this:</p>
 <div class="figure">
-<img src="vign_1.png" width="600" alt=""><p class="caption">final plot, png-format</p>
+<img src="vign_1.png" width="400" alt=""><p class="caption">final plot, pdf-format</p>
 </div>
 </div>
 <div class="section level3">
@@ -182,8 +191,8 @@ optional. If you leave it blank, it will be set to 2L.</p>
 <p>The <em>circlesplot</em>-function returns a recordedPlot-object.
 Therefore, you can save a plot to a variable and later plot the
 circlesplot:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">cp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/circlesplot.html">circlesplot</a></span><span class="op">(</span>cp_vals<span class="op">=</span><span class="va">diameter</span>, cp_text<span class="op">=</span><span class="va">planets</span>, cp_max<span class="op">=</span><span class="fl">4L</span>, cp_color<span class="op">=</span><span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">viridis</a></span><span class="op">(</span><span class="fl">8</span><span class="op">)</span>, cp_title<span class="op">=</span><span class="st">"Planets"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">cp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/circlesplot.html">circlesplot</a></span><span class="op">(</span>cp_vals<span class="op">=</span><span class="va">diameter</span>, cp_text<span class="op">=</span><span class="va">planets</span>, cp_max<span class="op">=</span><span class="fl">4L</span>, cp_color<span class="op">=</span><span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">viridis</a></span><span class="op">(</span><span class="fl">8</span><span class="op">)</span>, cp_title<span class="op">=</span><span class="st">"Planets"</span>, cp_title_size<span class="op">=</span><span class="fl">2.5</span>, cp_sort<span class="op">=</span><span class="st">'desc'</span>, cp_line_width<span class="op">=</span><span class="fl">3L</span><span class="op">)</span></span>
 <span><span class="co"># ...</span></span>
 <span><span class="va">cp</span></span></code></pre></div>
 </div>
@@ -198,18 +207,18 @@ export the plot as a <em>pdf-file</em> which has better quality.</p>
 <em>RStudio</em>: When you create the plot and it is displayed in the
 lower right window (in the plots tab), it seems like that a part of the
 plot is cut off but this happens only due to the size of the lower right
-window. Either resize it or use the following r code to save the plot as
-<em>pdf</em>:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+window. Either resize it or use the following <em>R</em>-code to save
+the plot as <em>pdf</em>:</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html" class="external-link">pdf</a></span><span class="op">(</span><span class="st">"path/to/your/pdf/plot1.pdf"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/circlesplot.html">circlesplot</a></span><span class="op">(</span>cp_vals<span class="op">=</span><span class="va">diameter</span>, cp_text<span class="op">=</span><span class="va">planets</span>, cp_max<span class="op">=</span><span class="fl">4L</span>, cp_color<span class="op">=</span><span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">viridis</a></span><span class="op">(</span><span class="fl">8</span><span class="op">)</span>, cp_title<span class="op">=</span><span class="st">"Planets"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/circlesplot.html">circlesplot</a></span><span class="op">(</span>cp_vals<span class="op">=</span><span class="va">diameter</span>, cp_text<span class="op">=</span><span class="va">planets</span>, cp_max<span class="op">=</span><span class="fl">4L</span>, cp_color<span class="op">=</span><span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">viridis</a></span><span class="op">(</span><span class="fl">8</span><span class="op">)</span>, cp_title<span class="op">=</span><span class="st">"Planets"</span>, cp_sort<span class="op">=</span><span class="st">'desc'</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
 <h2 id="help">Help<a class="anchor" aria-label="anchor" href="#help"></a>
 </h2>
-<p>If you need help or want to report an issue, request a new feature,
+<p>If you need help, want to report an issue or request a new feature,
 please visit <a href="https://github.com/BenSt099/circlesplot" class="external-link">Github</a>.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
