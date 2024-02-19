@@ -13,7 +13,8 @@ circlesplot(
   cp_color = NULL,
   cp_title_size = 1.5,
   cp_sort = "none",
-  cp_tight_spacing = 1
+  cp_tight_spacing = 1,
+  cp_shape = "circle"
 )
 }
 \arguments{
@@ -34,6 +35,8 @@ circlesplot(
 \item{cp_sort}{String; specifies if values should be sorted ('asc', 'desc'; default: 'none')}
 
 \item{cp_tight_spacing}{Number (numeric); specifies spacing between rows (default: 1.0, possible: 1.0 - 2.0; 2.0 smallest distance)}
+
+\item{cp_shape}{String; specifies the shape (default: 'circle'; possible: 'square')}
 }
 \value{
 Returns object of class 'recordedPlot'. Can be used for saving the plot to a variable and replay it again (See https://benst099.github.io/circlesplot/articles/cp_vignette.html).
@@ -57,7 +60,7 @@ library('plotrix')
 colors = c('#D1BBD7', '#AE76A3', '#882E72', '#1965B0', '#5289C7', '#7BAFDE', '#4EB265', '#90C987')
 planets = c('Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune')
 diameter = c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528)
-circlesplot(cp_vals=diameter,cp_text=planets,cp_max=3L,cp_title="Planets",cp_color=colors)
+circlesplot(cp_vals=diameter, cp_text=planets, cp_max=3L, cp_title="Planets", cp_color=colors)
 
 # For coloring, you can also use viridis package:
 library("viridis")
