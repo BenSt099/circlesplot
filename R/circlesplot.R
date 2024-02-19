@@ -5,14 +5,15 @@
 #' ratio between them.
 #'
 #'
-#' @param cp_vals Vector (numeric)
-#' @param cp_text Vector (characters)
+#' @param cp_vals Vector (numeric); provides data
+#' @param cp_text Vector (characters); provides text-labels
 #' @param cp_max Maximum number of circles in a row (integer)
 #' @param cp_line_width Line-width of the circles (integer)
 #' @param cp_title Title of the plot (String)
 #' @param cp_color Vector of hex-colors for each circle
 #' @param cp_title_size Size of the title (numeric or integer)
 #' @param cp_sort String; specifies if values should be sorted ('asc', 'desc'; default: 'none')
+#' @param cp_tight_spacing Number (numeric); specifies spacing between rows (default: 1.0, possible: 1.0 - 2.0; 2.0 smallest distance)
 #'
 #' @importFrom graphics par text
 #' @importFrom plotrix draw.circle
@@ -35,7 +36,7 @@
 #' colors = c('#D1BBD7', '#AE76A3', '#882E72', '#1965B0', '#5289C7', '#7BAFDE', '#4EB265', '#90C987')
 #' planets = c('Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune')
 #' diameter = c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528)
-#' circlesplot(cp_vals=diameter, cp_text=planets, cp_max=5L, cp_title="Planets", cp_color=colors)
+#' circlesplot(cp_vals=diameter, cp_text=planets, cp_max=3L, cp_title="Planets", cp_color=colors, cp_sort='desc', cp_tight_spacing=1.5)
 #'
 #' # For coloring, you can also use viridis package:
 #' library("viridis")
@@ -43,9 +44,9 @@
 #' text = c('8','7','6','5','4','3','2','1')
 #' circlesplot(cp_vals=values, cp_text=text, cp_max=4L, cp_title="Some title", cp_color=viridis(8))
 #'
-circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L, cp_title="", cp_color=NULL, cp_title_size=1.5, cp_sort='none') {
+circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L, cp_title="", cp_color=NULL, cp_title_size=1.5, cp_sort='none', cp_tight_spacing=1) {
 
-  .check_params(cp_vals, cp_text, cp_max, cp_line_width, cp_title, cp_color, cp_title_size, cp_sort)
+  .check_params(cp_vals, cp_text, cp_max, cp_line_width, cp_title, cp_color, cp_title_size, cp_sort, cp_tight_spacing)
 
   if (is.null(cp_color)) {
     cp_color <- rep("#FFFFFF", times=length(cp_vals))
@@ -59,10 +60,10 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
     df <- df[order(df$cp_vals, decreasing = FALSE),] # ascending
   }
 
-  return(.plot_circlesplot(df, cp_line_width, cp_title, cp_max, cp_title_size))
+  return(.plot_circlesplot(df, cp_line_width, cp_title, cp_max, cp_title_size, cp_tight_spacing))
 }
 
-.plot_circlesplot <- function(df, cp_line_width, cp_title, cp_max, cp_title_size) {
+.plot_circlesplot <- function(df, cp_line_width, cp_title, cp_max, cp_title_size, cp_tight_spacing) {
 
   diameter <- max(df$cp_vals)
   count <- 0
@@ -83,27 +84,50 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
 
   on.exit(par(par_old), add = TRUE)
 
-  for (item in df$cp_vals) {
+  if (cp_tight_spacing != 1 || cp_tight_spacing != 1L) {
 
-    if(count >= cp_max) {
+    spacing <- diameter / cp_tight_spacing
 
-      x_pos <- 0
-      y_pos <- y_pos -(3 * diameter + diameter)
-      count <- 0
-      y_pos_text <- y_pos -(diameter*1.5 + 3)
+    for (item in df$cp_vals) {
+
+      if(count >= cp_max) {
+        x_pos <- 0
+        y_pos <- y_pos -(3 * spacing + spacing)
+        count <- 0
+        y_pos_text <- y_pos -(spacing*1.5 + 3)
+      }
+
+      draw.circle(x_pos, y_pos, item, lwd=cp_line_width, col = df$cp_color[color_pos])
+      text(x_pos, y_pos_text, df$cp_text[color_pos])
+      x_pos <- x_pos + diameter * 2 + 1
+      count <- count + 1
+      color_pos <- color_pos + 1
     }
+  } else {
 
-    draw.circle(x_pos, y_pos, item, lwd=cp_line_width, col = df$cp_color[color_pos])
-    text(x_pos, y_pos_text, df$cp_text[color_pos])
-    x_pos <- x_pos + diameter * 2 + 1
-    count <- count + 1
-    color_pos <- color_pos + 1
+    for (item in df$cp_vals) {
+
+      if(count >= cp_max) {
+
+        x_pos <- 0
+        y_pos <- y_pos -(3 * diameter + diameter)
+        count <- 0
+        y_pos_text <- y_pos -(diameter*1.5 + 3)
+      }
+
+      draw.circle(x_pos, y_pos, item, lwd=cp_line_width, col = df$cp_color[color_pos])
+      text(x_pos, y_pos_text, df$cp_text[color_pos])
+      x_pos <- x_pos + diameter * 2 + 1
+      count <- count + 1
+      color_pos <- color_pos + 1
+    }
   }
+
   cplot <- recordPlot()
   return(cplot)
 }
 
-.check_params <- function(cp_vals, cp_text, cp_max, cp_line_width, cp_title, cp_color, cp_title_size, cp_sort) {
+.check_params <- function(cp_vals, cp_text, cp_max, cp_line_width, cp_title, cp_color, cp_title_size, cp_sort, cp_tight_spacing) {
 
   if (!inherits(cp_max, "integer")) {
     stop("[Error][circlesplot][Error in Parameter(s)]: Parameter 'cp_max' should be integer!")
@@ -145,5 +169,11 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
   }
   if (cp_sort != 'none' && cp_sort != 'desc' && cp_sort != 'asc') {
     stop("[Error][circlesplot][Error in Parameter(s)]: Parameter 'cp_sort' should be either 'none','desc' or 'asc'!")
+  }
+  if (!inherits(cp_tight_spacing, "integer") && !inherits(cp_tight_spacing, "numeric")) {
+    stop("[Error][circlesplot][Error in Parameter(s)]: Parameter 'cp_tight_spacing' should be integer or numeric!")
+  }
+  if (cp_tight_spacing < 1.0 || cp_tight_spacing > 2.0) {
+    stop("[Error][circlesplot][Error in Parameter(s)]: Parameter 'cp_tight_spacing' should be between 1.0 and 2.0!")
   }
 }

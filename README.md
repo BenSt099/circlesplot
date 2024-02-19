@@ -62,9 +62,9 @@ The left plot is exported as *png*, while the right is exported as
 
 You may see something unexpected in *RStudio*: When you create the plot
 and it is displayed in the lower right window (in the plots tab), it
-seems like that a part of the plot is cut off but this happens only due
-to the size of the lower right window. Either resize it or use the
-following r code to save the plot as *pdf*:
+seems like that a part of the plot is cut off or it’s displayed very
+small. This only happens due to the size of the lower right window.
+Either resize it or use the following r code to save the plot as *pdf*:
 
 ``` r
 pdf("path/to/your/pdf/plot1.pdf")
