@@ -36,7 +36,7 @@
 #' colors = c('#D1BBD7', '#AE76A3', '#882E72', '#1965B0', '#5289C7', '#7BAFDE', '#4EB265', '#90C987')
 #' planets = c('Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune')
 #' diameter = c(4879.4,12103.6,12756.3,6792.4,142984,120536,51118,49528)
-#' circlesplot(cp_vals=diameter, cp_text=planets, cp_max=3L, cp_title="Planets", cp_color=colors, cp_sort='desc', cp_tight_spacing=1.5)
+#' circlesplot(cp_vals=diameter, cp_text=planets, cp_max=3L, cp_title="Planets", cp_color=colors)
 #'
 #' # For coloring, you can also use viridis package:
 #' library("viridis")

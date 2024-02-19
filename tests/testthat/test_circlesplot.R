@@ -53,3 +53,15 @@ test_that("12: Error when cp_sort is not a string", {
 test_that("13: Error when wrong option used in cp_sort", {
   expect_error(.check_params(c(1,2), c('y','k'), 1L, 3L, "", NULL, 1, "asce"))
 })
+
+test_that("14: Error when cp_tight_spacing is not numeric", {
+  expect_error(.check_params(c(1,2), c('y','k'), 1L, 3L, "", NULL, 1, 'none', 's'))
+})
+
+test_that("15: Error when cp_tight_spacing has wrong value", {
+  expect_error(.check_params(c(1,2), c('y','k'), 1L, 3L, "", NULL, 1, 'none', 0.9))
+})
+
+test_that("16: Error when cp_tight_spacing has wrong value", {
+  expect_error(.check_params(c(1,2), c('y','k'), 1L, 3L, "", NULL, 1, 'none', 2.01))
+})
