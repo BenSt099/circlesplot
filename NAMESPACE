@@ -3,5 +3,6 @@
 export(circlesplot)
 importFrom(grDevices,recordPlot)
 importFrom(graphics,par)
+importFrom(graphics,rect)
 importFrom(graphics,text)
 importFrom(plotrix,draw.circle)
