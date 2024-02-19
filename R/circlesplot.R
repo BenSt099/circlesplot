@@ -88,6 +88,7 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
   if (cp_tight_spacing != 1 || cp_tight_spacing != 1L) {
 
     spacing <- diameter / cp_tight_spacing
+    y_pos_text <- y_pos_text + diameter / 2
 
     if(cp_shape == 'circle') {
       for (item in df$cp_vals) {
@@ -96,7 +97,7 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
           x_pos <- 0
           y_pos <- y_pos -(3 * spacing + spacing)
           count <- 0
-          y_pos_text <- y_pos -(spacing*1.5 + 3)
+          y_pos_text <- y_pos -(spacing + 3)
         }
         draw.circle(x_pos, y_pos, item, lwd=cp_line_width, col = df$cp_color[color_pos])
         text(x_pos, y_pos_text, df$cp_text[color_pos])
@@ -111,7 +112,7 @@ circlesplot <- function(cp_vals=NULL, cp_text=NULL, cp_max=10L, cp_line_width=2L
           x_pos <- 0
           y_pos <- y_pos -(3 * spacing + spacing)
           count <- 0
-          y_pos_text <- y_pos -(spacing*1.5 + 3)
+          y_pos_text <- y_pos -(spacing + 3)
         }
         rect(x_pos-item, y_pos-item , x_pos+item, y_pos+item, col= df$cp_color[color_pos], lwd=cp_line_width)
         text(x_pos, y_pos_text, df$cp_text[color_pos])

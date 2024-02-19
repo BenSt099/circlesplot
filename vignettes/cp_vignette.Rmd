@@ -123,6 +123,18 @@ circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_color=viridis(8), c
 As you can see in the final [Result](#Result), the spacing between rows is set optimistically. If you want a tighter layout, you can use the parameter *cp_tight_spacing*.
 It is a (numeric) number between 1.0 and 2.0. A spacing of _1.0_ will maintain the current graph spacing. A spacing of _2.0_ will result in a very tight layout.
 
+```
+circlesplot(..., cp_tight_spacing=1.3)
+```
+
+### Shapes
+
+The default plot consists of circles. If you want, you can also set the parameter *cp_shape* to _'square'_ to draw squares instead of circles.
+
+```
+circlesplot(..., cp_shape='squares')
+```
+
 ### Result
 
 The final plot would look like this:

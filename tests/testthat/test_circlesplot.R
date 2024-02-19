@@ -65,3 +65,11 @@ test_that("15: Error when cp_tight_spacing has wrong value", {
 test_that("16: Error when cp_tight_spacing has wrong value", {
   expect_error(.check_params(c(1,2), c('y','k'), 1L, 3L, "", NULL, 1, 'none', 2.01))
 })
+
+test_that("17: Error when cp_shape has wrong value", {
+  expect_error(.check_params(c(1,2), c('y','k'), 1L, 3L, "", NULL, 1, 'none', 2.0, 'aa'))
+})
+
+test_that("18: Error when cp_shape is not character", {
+  expect_error(.check_params(c(1,2), c('y','k'), 1L, 3L, "", NULL, 1, 'none', 2.0, 1))
+})
