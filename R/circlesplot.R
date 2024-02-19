@@ -19,6 +19,7 @@
 #' @importFrom graphics par text
 #' @importFrom plotrix draw.circle
 #' @importFrom grDevices recordPlot
+#' @importFrom graphics rect
 #' @return Returns object of class 'recordedPlot'. Can be used for saving the plot to a variable and replay it again (See https://benst099.github.io/circlesplot/articles/cp_vignette.html).
 #' @export circlesplot
 #'
