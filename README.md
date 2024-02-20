@@ -55,7 +55,7 @@ alt="plot, png-format" />
 <img src="man/figures/README-example_3.png" width="400"
 alt="plot, pdf-format" />
 
-The left plot is exported as *png*, while the right is exported as
+The first plot is exported as *png*, while the second is exported as
 *pdf*.
 
 ## Known issues

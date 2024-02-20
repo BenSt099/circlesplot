@@ -56,7 +56,7 @@ circlesplot(cp_vals=diameter, cp_text=planets, cp_max=4L, cp_title="Planets", cp
 ![plot, png-format](man/figures/README-example.png){width=400}
 ![plot, pdf-format](man/figures/README-example_3.png){width=400}
 
-The left plot is exported as *png*, while the right is exported as *pdf*.
+The first plot is exported as *png*, while the second is exported as *pdf*.
 
 ## Known issues
 
