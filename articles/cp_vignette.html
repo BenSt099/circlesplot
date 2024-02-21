@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">circlesplot</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,6 +43,9 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/cp_vignette.html">circlesplot</a>
   </div>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -178,6 +181,25 @@ can also set it to ‘asc’ (ascending) or ‘desc’ (descending):</p>
 optional. If you leave it blank, it will be set to 2L.</p>
 </div>
 <div class="section level3">
+<h3 id="tight-spacing">Tight Spacing<a class="anchor" aria-label="anchor" href="#tight-spacing"></a>
+</h3>
+<p>As you can see in the final <a href="#Result">Result</a>, the spacing
+between rows is set optimistically. If you want a tighter layout, you
+can use the parameter <em>cp_tight_spacing</em>. It is a (numeric)
+number between 1.0 and 2.0. A spacing of <em>1.0</em> will maintain the
+current graph spacing. A spacing of <em>2.0</em> will result in a very
+tight layout.</p>
+<pre><code><span><span class="fu"><a href="../reference/circlesplot.html">circlesplot</a></span><span class="op">(</span><span class="va">...</span>, cp_tight_spacing<span class="op">=</span><span class="fl">1.3</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="shapes">Shapes<a class="anchor" aria-label="anchor" href="#shapes"></a>
+</h3>
+<p>The default plot consists of circles. If you want, you can also set
+the parameter <em>cp_shape</em> to <em>‘square’</em> to draw squares
+instead of circles.</p>
+<pre><code><span><span class="fu"><a href="../reference/circlesplot.html">circlesplot</a></span><span class="op">(</span><span class="va">...</span>, cp_shape<span class="op">=</span><span class="st">'squares'</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level3">
 <h3 id="result">Result<a class="anchor" aria-label="anchor" href="#result"></a>
 </h3>
 <p>The final plot would look like this:</p>
@@ -191,7 +213,7 @@ optional. If you leave it blank, it will be set to 2L.</p>
 <p>The <em>circlesplot</em>-function returns a recordedPlot-object.
 Therefore, you can save a plot to a variable and later plot the
 circlesplot:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/circlesplot.html">circlesplot</a></span><span class="op">(</span>cp_vals<span class="op">=</span><span class="va">diameter</span>, cp_text<span class="op">=</span><span class="va">planets</span>, cp_max<span class="op">=</span><span class="fl">4L</span>, cp_color<span class="op">=</span><span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">viridis</a></span><span class="op">(</span><span class="fl">8</span><span class="op">)</span>, cp_title<span class="op">=</span><span class="st">"Planets"</span>, cp_title_size<span class="op">=</span><span class="fl">2.5</span>, cp_sort<span class="op">=</span><span class="st">'desc'</span>, cp_line_width<span class="op">=</span><span class="fl">3L</span><span class="op">)</span></span>
 <span><span class="co"># ...</span></span>
 <span><span class="va">cp</span></span></code></pre></div>
@@ -209,7 +231,7 @@ lower right window (in the plots tab), it seems like that a part of the
 plot is cut off but this happens only due to the size of the lower right
 window. Either resize it or use the following <em>R</em>-code to save
 the plot as <em>pdf</em>:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html" class="external-link">pdf</a></span><span class="op">(</span><span class="st">"path/to/your/pdf/plot1.pdf"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/circlesplot.html">circlesplot</a></span><span class="op">(</span>cp_vals<span class="op">=</span><span class="va">diameter</span>, cp_text<span class="op">=</span><span class="va">planets</span>, cp_max<span class="op">=</span><span class="fl">4L</span>, cp_color<span class="op">=</span><span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">viridis</a></span><span class="op">(</span><span class="fl">8</span><span class="op">)</span>, cp_title<span class="op">=</span><span class="st">"Planets"</span>, cp_sort<span class="op">=</span><span class="st">'desc'</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
